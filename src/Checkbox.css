@@ -1,0 +1,148 @@
+.checkbox {
+  --hover-scale: 0.92;
+  --stroke-size: 0.6rem;
+  width: 15rem;
+  height: 15rem;
+  background: #fff;
+  border-radius: 20%;
+  background: var(--color-secondary);
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  transform: rotate(90deg);
+  transition: 0.2s;
+  animation: BackgroundFillOut 0.7s forwards;
+}
+
+.checkbox.-checked {
+  animation: BackgroundFillIn 0.2s forwards;
+}
+
+.checkbox__background,
+.checkbox__border {
+  transform: translate(var(--stroke-size), var(--stroke-size));
+  width: calc(100% - var(--stroke-size) * 2);
+  height: calc(100% - var(--stroke-size) * 2);
+  transform-origin: center center;
+  fill: #fff;
+}
+
+.checkbox__background {
+  transition: 0.2s;
+}
+
+.checkbox__border {
+  fill: none;
+  stroke: var(--color-primary);
+  stroke-width: 1.2rem;
+  stroke-dasharray: 600;
+  stroke-dashoffset: 600;
+  stroke-linecap: round;
+  animation: BorderFillOut forwards 0.75s;
+}
+
+.checkbox:hover .checkbox__background,
+.checkbox__background.-checked {
+  transform: scale(var(--hover-scale))
+    translate(var(--stroke-size), var(--stroke-size));
+}
+
+.checkbox__border.-checked {
+  animation: BorderFillIn forwards 0.75s;
+}
+
+.checkbox__check {
+  transform: rotate(-90deg) translate(calc(50% - 3.5rem), calc(-50% + 8rem));
+  transform-origin: center center;
+  fill: none;
+  stroke: var(--color-primary);
+  stroke-dasharray: 300;
+  stroke-dashoffset: 300;
+  stroke-width: 1.2rem;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  animation: MarkFillOut 0.4s forwards;
+}
+
+.checkbox__check.-checked {
+  animation: MarkFillIn 0.4s forwards;
+}
+
+.-unchecked {
+  animation: none;
+}
+
+@keyframes BorderFillIn {
+  0% {
+    stroke-dasharray: 600;
+    stroke-dashoffset: 600;
+  }
+  60% {
+    stroke-dasharray: 245;
+    stroke-dashoffset: -240;
+  }
+  100% {
+    stroke-dasharray: 0 500;
+    stroke-dashoffset: -490;
+  }
+}
+
+@keyframes BorderFillOut {
+  0% {
+    stroke-dasharray: 0 500;
+    stroke-dashoffset: -490;
+  }
+
+  40% {
+    stroke-dasharray: 245;
+    stroke-dashoffset: -240;
+  }
+  100% {
+    stroke-dasharray: 600;
+    stroke-dashoffset: 600;
+  }
+}
+
+@keyframes MarkFillIn {
+  0% {
+    stroke-dashoffset: 300;
+    stroke-dasharray: 300;
+  }
+
+  100% {
+    stroke-dasharray: 100, 100;
+    stroke-dashoffset: -50;
+  }
+}
+
+@keyframes MarkFillOut {
+  0% {
+    stroke-dasharray: 100, 100;
+    stroke-dashoffset: -50;
+  }
+
+  100% {
+    stroke-dasharray: 300;
+    stroke-dashoffset: 300;
+  }
+}
+
+@keyframes BackgroundFillIn {
+  0% {
+    background: var(--color-secondary-light);
+  }
+
+  100% {
+    background: var(--color-primary);
+  }
+}
+
+@keyframes BackgroundFillOut {
+  0% {
+    background: var(--color-primary);
+  }
+
+  100% {
+    background: var(--color-secondary-light);
+  }
+}
