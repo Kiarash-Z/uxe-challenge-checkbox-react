@@ -1,5 +1,7 @@
 # UXE Checkbox Challenge React  Component
 
+![checkbox animation](animation.gif)
+
 ## API
 | Prop  | Type | Description |
 | ------------- | ------------- | ------------- |
@@ -28,3 +30,6 @@ function App() {
 
 export default App;
 ```
+
+## Codepen
+Here's [demo on CodePen!](https://codepen.io/KiarashZ/pen/zYxNxEe)
